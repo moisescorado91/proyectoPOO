@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-10-2024 a las 23:51:39
+-- Tiempo de generación: 15-10-2024 a las 07:38:51
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.1.25
 
@@ -96,21 +96,11 @@ CREATE TABLE `medicamento` (
   `id_medicamento` int(11) NOT NULL,
   `codigo` varchar(50) DEFAULT NULL,
   `nombre` varchar(100) DEFAULT NULL,
-  `codigo_barra` varchar(255) NOT NULL,
-  `fecha_creacion` date NOT NULL,
   `precio` decimal(10,2) DEFAULT NULL,
   `fecha_vencimiento` date DEFAULT NULL,
   `stock` int(11) DEFAULT NULL,
   `ubicacion` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `medicamento`
---
-
-INSERT INTO `medicamento` (`id_medicamento`, `codigo`, `nombre`, `codigo_barra`, `fecha_creacion`, `precio`, `fecha_vencimiento`, `stock`, `ubicacion`) VALUES
-(1, '3370', 'Acetaminofen', '6196', '2024-10-23', 10.20, '2025-10-23', 20, 'Tercer pasillo'),
-(2, '1750', 'Acetaminofen', '2489', '2024-10-23', 10.20, '2025-10-23', 20, 'Tercer pasillo');
 
 -- --------------------------------------------------------
 
@@ -123,14 +113,6 @@ CREATE TABLE `medicamento_proveedor` (
   `id_proveedor` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Volcado de datos para la tabla `medicamento_proveedor`
---
-
-INSERT INTO `medicamento_proveedor` (`id_medicamento`, `id_proveedor`) VALUES
-(1, 2),
-(2, 2);
-
 -- --------------------------------------------------------
 
 --
@@ -139,19 +121,9 @@ INSERT INTO `medicamento_proveedor` (`id_medicamento`, `id_proveedor`) VALUES
 
 CREATE TABLE `proveedor` (
   `id_proveedor` int(11) NOT NULL,
-  `nombres` varchar(100) DEFAULT NULL,
-  `apellidos` varchar(100) NOT NULL,
-  `direccion` varchar(255) NOT NULL,
-  `correo` varchar(255) DEFAULT NULL
+  `nombre` varchar(100) DEFAULT NULL,
+  `contacto` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `proveedor`
---
-
-INSERT INTO `proveedor` (`id_proveedor`, `nombres`, `apellidos`, `direccion`, `correo`) VALUES
-(1, 'Moises', 'Molina Corado', 'Colonia de algun lugar', 'moises@gmail.com'),
-(2, 'Moises Isaac', 'Molina Corado', 'Colonia de algun lugar', 'moises@gmail.com');
 
 --
 -- Índices para tablas volcadas
@@ -236,13 +208,13 @@ ALTER TABLE `factura`
 -- AUTO_INCREMENT de la tabla `medicamento`
 --
 ALTER TABLE `medicamento`
-  MODIFY `id_medicamento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_medicamento` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `proveedor`
 --
 ALTER TABLE `proveedor`
-  MODIFY `id_proveedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_proveedor` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas
